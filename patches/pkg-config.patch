@@ -1,0 +1,14 @@
+Create libsvbcamerasdk.pc template
+--- libsvbcamerasdk.pc.in	1970-01-01 01:00:00.000000000 +0100
++++ libsvbcamerasdk.pc.in	2016-11-05 23:11:43.247858211 +0000
+@@ -0,0 +1,9 @@
++libdir=@LIBDIR@
++includedir=/usr/include
++
++Name: libsvbcamerasdk
++Description: SVBony camera interface library
++URL: https://www.svbony.com/
++Version: @VERSION@
++Libs: -L${libdir} -lSVBCameraSDK
++Cflags: -I${includedir}
+
