@@ -2,7 +2,7 @@ Creates a makefile to create libsvbcamerasdk.pc and install package
 files in the correct places
 --- Makefile	1970-01-01 01:00:00.000000000 +0100
 +++ Makefile	2016-11-10 17:31:08.686722661 +0000
-@@ -0,0 +1,24 @@
+@@ -0,0 +1,28 @@
 +all:	libsvbcamerasdk.pc
 +
 +%.pc:	%.pc.in
@@ -13,13 +13,17 @@ files in the correct places
 +	mkdir -p $(LIBDIR) $(INCDIR) $(PKGCONFDIR) $(UDEVDIR)
 +	case $(DEB_BUILD_ARCH) in \
 +	i386) \
++		cp $(SRCDIR)/lib/x86/libSVBCameraSDK.a $(LIBDIR); \
 +		cp $(SRCDIR)/lib/x86/libSVBCameraSDK*.so.$(VERSION) $(LIBDIR);; \
 +	amd64) \
++		cp $(SRCDIR)/lib/x64/libSVBCameraSDK.a $(LIBDIR); \
 +		cp $(SRCDIR)/lib/x64/libSVBCameraSDK*.so.$(VERSION) $(LIBDIR);; \
 +	arm64) \
++		cp $(SRCDIR)/lib/armv8/libSVBCameraSDK.a $(LIBDIR); \
 +		cp $(SRCDIR)/lib/armv8/libSVBCameraSDK*.so.$(VERSION) $(LIBDIR);; \
 +	armhf) \
 +		arch=`uname -m | sed -e 's/[lb]$$//'`; \
++		cp $(SRCDIR)/lib/$$arch/libSVBCameraSDK.a $(LIBDIR); \
 +		cp $(SRCDIR)/lib/$$arch/libSVBCameraSDK*.so.$(VERSION) $(LIBDIR);; \
 +	esac
 +	ln -sf libSVBCameraSDK.so.$(VERSION) $(LIBDIR)/libSVBCameraSDK.so.$(MAJOR_REV)
