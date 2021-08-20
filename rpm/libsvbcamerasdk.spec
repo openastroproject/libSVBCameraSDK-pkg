@@ -1,14 +1,14 @@
 %define debug_package %{nil}
 
 Name:           libsvbcamerasdk
-Version:        1.2.5
+Version:        1.6.2.11
 Release:        0
 Summary:        SVBony camera SDK
 License:        expat
 URL:            http://astronomy-imaging-camera.com/
 Prefix:         %{_prefix}
 Provides:       libsvbcamerasdk = %{version}-%{release}
-Obsoletes:      libsvbcamerasdk < 1.2.5
+Obsoletes:      libsvbcamerasdk < 1.6.2.11
 Requires:       libusbx
 Source:         libsvbcamerasdk-%{version}.tar.gz
 Patch0:         pkg-config.patch
@@ -22,7 +22,7 @@ Summary:        Development files for %{name}
 Group:          Development/Libraries
 Requires:       %{name}%{?_isa} = %{version}-%{release}
 Provides:       libsvbcamerasdk-devel = %{version}-%{release}
-Obsoletes:      libsvbcamerasdk-devel < 1.2.5
+Obsoletes:      libsvbcamerasdk-devel < 1.6.2.11
 
 %description    devel
 The %{name}-devel package contains libraries and header files for
@@ -47,11 +47,9 @@ mkdir -p %{buildroot}/etc/udev/rules.d
 case %{_arch} in
   i386)
     cp lib/x86/libSVBCameraSDK*.so.%{version} %{buildroot}%{_libdir}
-    cp lib/x86/libSVBCameraSDK.a %{buildroot}%{_libdir}
     ;;
   x86_64)
     cp lib/x64/libSVBCameraSDK*.so.%{version} %{buildroot}%{_libdir}
-    cp lib/x64/libSVBCameraSDK.a %{buildroot}%{_libdir}
     ;;
   *)
     echo "unknown target architecture %{_arch}"
@@ -81,11 +79,10 @@ cp 70-svb-cameras.rules %{buildroot}/etc/udev/rules.d
 %files devel
 %{_includedir}/SVBCameraSDK.h
 %{_libdir}/pkgconfig/%{name}*.pc
-%{_libdir}/*.a
 %{_docdir}/%{name}-%{version}/demo/Makefile
 %{_docdir}/%{name}-%{version}/demo/*.*
 
 %changelog
-* Wed Dec 9 2020 James Fidell <james@openastroproject.org> - 1.2.5
+* Fri Aug 20 2021 James Fidell <james@openastroproject.org> - 1.6.2.11
 - Initial RPM release
 
