@@ -1,5 +1,5 @@
-libsvbcamerasdk (1.6.2.11-0) bionic; urgency=medium
+libsvbcamerasdk (1.12.1-0) jammy; urgency=medium
 
   * Initial release
 
- -- James Fidell <james@openastroproject.org>  Fri, 20 Aug 2021 16:19:00 +0000
+ -- James Fidell <james@openastroproject.org>  Sat, 6 Jan 2024 00:37:00 +0000

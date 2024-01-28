@@ -1,14 +1,14 @@
 %define debug_package %{nil}
 
 Name:           libsvbcamerasdk
-Version:        1.6.2.11
+Version:        1.12.1
 Release:        0
 Summary:        SVBony camera SDK
 License:        expat
 URL:            http://astronomy-imaging-camera.com/
 Prefix:         %{_prefix}
 Provides:       libsvbcamerasdk = %{version}-%{release}
-Obsoletes:      libsvbcamerasdk < 1.6.2.11
+Obsoletes:      libsvbcamerasdk < 1.12.1
 Requires:       libusbx
 Source:         libsvbcamerasdk-%{version}.tar.gz
 Patch0:         pkg-config.patch
@@ -22,7 +22,7 @@ Summary:        Development files for %{name}
 Group:          Development/Libraries
 Requires:       %{name}%{?_isa} = %{version}-%{release}
 Provides:       libsvbcamerasdk-devel = %{version}-%{release}
-Obsoletes:      libsvbcamerasdk-devel < 1.6.2.11
+Obsoletes:      libsvbcamerasdk-devel < 1.12.1
 
 %description    devel
 The %{name}-devel package contains libraries and header files for
@@ -83,6 +83,6 @@ cp 70-svb-cameras.rules %{buildroot}/etc/udev/rules.d
 %{_docdir}/%{name}-%{version}/demo/*.*
 
 %changelog
-* Fri Aug 20 2021 James Fidell <james@openastroproject.org> - 1.6.2.11
+* Sat Jan 5 2024 James Fidell <james@openastroproject.org> - 1.12.1
 - Initial RPM release
 
